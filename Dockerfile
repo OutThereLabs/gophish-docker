@@ -9,10 +9,10 @@ apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /opt/gophish-v0.6.0-linux-64bit
 
-RUN groupadd -g 1001 usergp && \
-    useradd -r -u 1001 -g usergp user
-
-RUN chown -R user:usergp /opt/gophish-v0.6.0-linux-64bit
+RUN chown -R 1001:0 /opt/gophish-v0.6.0-linux-64bit && \
+    chown -R 1001:0 $HOME && \
+    chmod -R g+rw $HOME
+    
 USER 1001
 
 RUN wget -nv https://github.com/gophish/gophish/releases/download/v0.6.0/gophish-v0.6.0-linux-64bit.zip && \
