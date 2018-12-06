@@ -9,10 +9,10 @@ apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /opt/gophish-v0.6.0-linux-64bit
 
-RUN chown -R 1001:0 /opt/gophish-v0.6.0-linux-64bit && \
+RUN chown -R 1001:0 /opt && \
     chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
-    
+
 USER 1001
 
 RUN wget -nv https://github.com/gophish/gophish/releases/download/v0.6.0/gophish-v0.6.0-linux-64bit.zip && \
