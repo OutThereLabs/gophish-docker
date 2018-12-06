@@ -22,6 +22,7 @@ rm -f gophish-v0.6.0-linux-64bit.zip
 
 RUN sed -i "s|127.0.0.1|0.0.0.0|g" config.json && \
 sed -i "s|0.0.0.0:80|0.0.0.0:8080|g" config.json && \
+sed -i "s|true|false|g" config.json && \
 chmod +x gophish
 
 EXPOSE 3333 8080
